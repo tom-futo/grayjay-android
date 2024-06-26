@@ -25,17 +25,6 @@ body:
         * **Grayjay Official Nebula Plugin**: Open an issue at [grayjay-plugin-nebula](https://github.com/futo-org/grayjay-plugin-nebula/issues).
         * **Grayjay Official SoundCloud Plugin**: Open an issue at [grayjay-plugin-soundcloud](https://github.com/futo-org/grayjay-plugin-soundcloud/issues).
         * **A Grayjay Unofficial Plugin**: Please open an issue in the plugin's own repository, which can be found by searching it by name in GitHub search.
- 
-  - type: textarea
-    id: grayjay-version
-    attributes:
-      label: Grayjay Version
-      description: In the application, More > settings, scrolls to bottom and locate it next to "Version Name".
-      render: shell
-      placeholder: ...grayjay version...
-      value:
-    validations:
-      required: true
 
   - type: input
     id: contact
@@ -45,6 +34,7 @@ body:
       placeholder: ex. email@example.com
     validations:
       required: false
+      
   - type: textarea
     id: what-happened
     attributes:
@@ -54,14 +44,17 @@ body:
       value: "A bug happened!"
     validations:
       required: true
-  - type: input
-    id: version
+
+  - type: textarea
+    id: grayjay-version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Grayjay Version
+      description: In the application, select More > Settings, scroll to the bottom and locate the value next to "Version Name".
+      render: shell
       placeholder: "242"
     validations:
       required: true
+
   - type: dropdown
     id: plugin
     attributes:
@@ -82,10 +75,11 @@ body:
         - Other
     validations:
       required: true
+
   - type: dropdown
     id: login
     attributes:
-      label: Are you expiriencing the issue when logged in?
+      label: Are you experiencing the issue when logged in?
       multiple: false
       options:
         - "Yes"
@@ -93,14 +87,18 @@ body:
         - N/A
     validations:
       required: true
+
   - type: textarea
     id: logs
     attributes:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+      
   - type: markdown
     attributes:
       value: |
         ### Video/Screenshot
-        Please include a screen recording or screenshot of the issue if possible
+        Please include a screen recording or screenshot of the issue if possible by dragging and dropping it here.
+      
+        ![Drag and drop your file here](https://github.githubassets.com/images/modules/upload/icon-upload.svg)
