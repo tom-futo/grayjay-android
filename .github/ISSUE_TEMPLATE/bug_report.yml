@@ -1,19 +1,18 @@
 name: Bug Report
-description: File a bug report.
-title: "[Bug]: "
-labels: ["bug", "triage"]
+description: Let us know about an unexpected error, a crash, or an incorrect behavior.
+labels: ["bug", "new"]
 body:
   - type: markdown
     attributes:
       value: |
         # Thank you for taking the time to fill out this bug report.
         
-        The [grayjay-android](https://github.com/futo-org/grayjay-android) issue tracker is reserved for bug reports relating to $blah
+        The [grayjay-android](https://github.com/futo-org/grayjay-android) issue tracker is reserved for issues relating to the Grayjay Android Application
 
-        For general usage questions, please see: [The FUTO Grayjay Zulip Channel](https://chat.futo.org/#narrow/stream/46-Grayjay)
+        For general usage questions, please see: [The Official FUTO Grayjay Zulip Channel](https://chat.futo.org/#narrow/stream/46-Grayjay)
 
         ## If your issue is related to:
-      
+        
         * **Grayjay Official Youtube Plugin**: Open an issue at [grayjay-plugin-youtube](https://github.com/futo-org/grayjay-plugin-youtube/issues).
         * **Grayjay Official BiliBili Plugin**: Open an issue at [grayjay-plugin-bilibili](https://github.com/futo-org/grayjay-plugin-bilibili/issues).
         * **Grayjay Official Twitch Plugin**: Open an issue at [grayjay-plugin-twitch](https://github.com/futo-org/grayjay-plugin-twitch/issues).
@@ -24,8 +23,14 @@ body:
         * **Grayjay Official Patreon Plugin**: Open an issue at [grayjay-plugin-patreon](https://github.com/futo-org/grayjay-plugin-patreon/issues).
         * **Grayjay Official Nebula Plugin**: Open an issue at [grayjay-plugin-nebula](https://github.com/futo-org/grayjay-plugin-nebula/issues).
         * **Grayjay Official SoundCloud Plugin**: Open an issue at [grayjay-plugin-soundcloud](https://github.com/futo-org/grayjay-plugin-soundcloud/issues).
-        * **A Grayjay Unofficial Plugin**: Please open an issue in the plugin's own repository, which can be found by searching it by name in GitHub search.
+        * **A Grayjay Unofficial Plugin**: Please open an issue in the plugin's own repository, which can be found by selecting Sources > Plugin Name > Script URL OR Repository URL.
 
+        ## Filing a bug report
+
+        To fix your issues faster, we need clear reproduction cases - ideally allowing us to make it happen locally. 
+        * Please include all needed context. For example, Device, OS, Application, your Grayjay Configurations and Plugin versioning info.
+        * if you've found out a particular series of UI interactions can introduce buggy behavior, please label those steps 1-n with markdown
+  
   - type: input
     id: contact
     attributes:
@@ -39,7 +44,7 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
+      description: What did you expect to happen?
       placeholder: Tell us what you see!
       value: "A bug happened!"
     validations:
@@ -94,11 +99,3 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
-      
-  - type: markdown
-    attributes:
-      value: |
-        ### Video/Screenshot
-        Please include a screen recording or screenshot of the issue if possible by dragging and dropping it here.
-      
-        ![Drag and drop your file here](https://github.githubassets.com/images/modules/upload/icon-upload.svg)
