@@ -1,45 +1,34 @@
-name: Issue Labeler
-
+name: Issue labeler
 on:
   issues:
-    types: [opened]
+    types: [ opened ]
+
+permissions:
+  contents: read
 
 jobs:
-  label:
+  label-component:
     runs-on: ubuntu-latest
+
+    permissions:
+      # required for all workflows
+      issues: write
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Set labels based on plugin selection
-        run: |
-          ISSUE_LABELS=""
-          case "${{ github.event.issue.fields.plugin }}" in
-            *All*) ISSUE_LABELS+=" 'Plugin: All'";;
-            *Youtube*) ISSUE_LABELS+=" 'Plugin: Youtube'";;
-            *"BiliBili (CN)"*) ISSUE_LABELS+=" 'Plugin: BiliBili'";;
-            *"Twitch (Beta)"*) ISSUE_LABELS+=" 'Plugin: Twitch'";;
-            *Odysee*) ISSUE_LABELS+=" 'Plugin: Odysee'";;
-            *Rumble*) ISSUE_LABELS+=" 'Plugin: Rumble'";;
-            *"Kick (Beta)"*) ISSUE_LABELS+=" 'Plugin: Kick'";;
-            *PeerTube*) ISSUE_LABELS+=" 'Plugin: PeerTube'";;
-            *Patreon*) ISSUE_LABELS+=" 'Plugin: Patreon'";;
-            *"Nebula (Beta)"*) ISSUE_LABELS+=" 'Plugin: Nebula'";;
-            *SoundCloud*) ISSUE_LABELS+=" 'Plugin: SoundCloud'";;
-            *Other*) ISSUE_LABELS+=" 'Plugin: Other'";;
-          esac
-          echo "::set-output name=LABELS::$ISSUE_LABELS"
-        id: set_labels
-
-      - name: Add labels to issue
-        uses: actions/github-script@v4
+      - name: Parse issue form
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const labelsToAdd = ${{ steps.set_labels.outputs.LABELS.split(' ') }};
-            await github.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: labelsToAdd
-            });
+          template-path: .github/ISSUE_TEMPLATE/bug_report.yml
+
+      - name: Set labels based on plugin field
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v2
+        with:
+          issue-form: ${{ steps.issue-parser.outputs.jsonString }}
+          section: plugin
+          block-list: |
+            None
+            Other
+          token: ${{ secrets.GITHUB_TOKEN }}
