@@ -76,17 +76,3 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
-
-labels:
-  All: 'Plugin: All'
-  Youtube: 'Plugin: Youtube'
-  "BiliBili (CN)": 'Plugin: BiliBili'
-  "Twitch (Beta)": 'Plugin: Twitch'
-  Odysee: 'Plugin: Odysee'
-  Rumble: 'Plugin: Rumble'
-  "Kick (Beta)": 'Plugin: Kick'
-  PeerTube: 'Plugin: PeerTube'
-  Patreon: 'Plugin: Patreon'
-  "Nebula (Beta)": 'Plugin: Nebula'
-  SoundCloud: 'Plugin: SoundCloud'
-  Other: 'Plugin: Other'
