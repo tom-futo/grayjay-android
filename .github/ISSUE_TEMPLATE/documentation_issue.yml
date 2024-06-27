@@ -61,3 +61,17 @@ body:
     attributes:
       value: |
         **Note:** If the submit button is disabled and you have filled out all required fields, please check that you did not forget a **Title** for the issue.
+
+labels:
+  All: 'Plugin: All'
+  Youtube: 'Plugin: Youtube'
+  "BiliBili (CN)": 'Plugin: BiliBili'
+  "Twitch (Beta)": 'Plugin: Twitch'
+  Odysee: 'Plugin: Odysee'
+  Rumble: 'Plugin: Rumble'
+  "Kick (Beta)": 'Plugin: Kick'
+  PeerTube: 'Plugin: PeerTube'
+  Patreon: 'Plugin: Patreon'
+  "Nebula (Beta)": 'Plugin: Nebula'
+  SoundCloud: 'Plugin: SoundCloud'
+  Other: 'Plugin: Other'

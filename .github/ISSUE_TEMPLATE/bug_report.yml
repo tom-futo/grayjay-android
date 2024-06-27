@@ -11,35 +11,12 @@ body:
 
         For general usage questions, please see: [The Official FUTO Grayjay Zulip Channel](https://chat.futo.org/#narrow/stream/46-Grayjay)
 
-        ## If your issue is related to:
-        
-        * **Grayjay Official Youtube Plugin**: Open an issue at [grayjay-plugin-youtube](https://github.com/futo-org/grayjay-plugin-youtube/issues).
-        * **Grayjay Official BiliBili Plugin**: Open an issue at [grayjay-plugin-bilibili](https://github.com/futo-org/grayjay-plugin-bilibili/issues).
-        * **Grayjay Official Twitch Plugin**: Open an issue at [grayjay-plugin-twitch](https://github.com/futo-org/grayjay-plugin-twitch/issues).
-        * **Grayjay Official Odysee Plugin**: Open an issue at [grayjay-plugin-odysee](https://github.com/futo-org/grayjay-plugin-odysee/issues).
-        * **Grayjay Official Rumble Plugin**: Open an issue at [grayjay-plugin-rumble](https://github.com/futo-org/grayjay-plugin-rumble/issues).
-        * **Grayjay Official Kick Plugin**: Open an issue at [grayjay-plugin-kick](https://github.com/futo-org/grayjay-plugin-kick/issues).
-        * **Grayjay Official PeerTube Plugin**: Open an issue at [grayjay-plugin-peertube](https://github.com/futo-org/grayjay-plugin-peertube/issues).
-        * **Grayjay Official Patreon Plugin**: Open an issue at [grayjay-plugin-patreon](https://github.com/futo-org/grayjay-plugin-patreon/issues).
-        * **Grayjay Official Nebula Plugin**: Open an issue at [grayjay-plugin-nebula](https://github.com/futo-org/grayjay-plugin-nebula/issues).
-        * **Grayjay Official SoundCloud Plugin**: Open an issue at [grayjay-plugin-soundcloud](https://github.com/futo-org/grayjay-plugin-soundcloud/issues).
-        * **A Grayjay Unofficial Plugin**: Please open an issue in the plugin's own repository, which can be found by selecting Sources > Plugin Name > Script URL OR Repository URL.
-
         ## Filing a bug report
 
         To fix your issues faster, we need clear reproduction cases - ideally allowing us to make it happen locally. 
         * Please include all needed context. For example, Device, OS, Application, your Grayjay Configurations and Plugin versioning info.
         * if you've found out a particular series of UI interactions can introduce buggy behavior, please label those steps 1-n with markdown
-  
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-      
+
   - type: textarea
     id: what-happened
     attributes:
@@ -99,3 +76,17 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+
+labels:
+  All: 'Plugin: All'
+  Youtube: 'Plugin: Youtube'
+  "BiliBili (CN)": 'Plugin: BiliBili'
+  "Twitch (Beta)": 'Plugin: Twitch'
+  Odysee: 'Plugin: Odysee'
+  Rumble: 'Plugin: Rumble'
+  "Kick (Beta)": 'Plugin: Kick'
+  PeerTube: 'Plugin: PeerTube'
+  Patreon: 'Plugin: Patreon'
+  "Nebula (Beta)": 'Plugin: Nebula'
+  SoundCloud: 'Plugin: SoundCloud'
+  Other: 'Plugin: Other'
