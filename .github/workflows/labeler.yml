@@ -1,0 +1,45 @@
+name: Issue Labeler
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set labels based on plugin selection
+        run: |
+          ISSUE_LABELS=""
+          case "${{ github.event.issue.fields.plugin }}" in
+            *All*) ISSUE_LABELS+=" 'Plugin: All'";;
+            *Youtube*) ISSUE_LABELS+=" 'Plugin: Youtube'";;
+            *"BiliBili (CN)"*) ISSUE_LABELS+=" 'Plugin: BiliBili'";;
+            *"Twitch (Beta)"*) ISSUE_LABELS+=" 'Plugin: Twitch'";;
+            *Odysee*) ISSUE_LABELS+=" 'Plugin: Odysee'";;
+            *Rumble*) ISSUE_LABELS+=" 'Plugin: Rumble'";;
+            *"Kick (Beta)"*) ISSUE_LABELS+=" 'Plugin: Kick'";;
+            *PeerTube*) ISSUE_LABELS+=" 'Plugin: PeerTube'";;
+            *Patreon*) ISSUE_LABELS+=" 'Plugin: Patreon'";;
+            *"Nebula (Beta)"*) ISSUE_LABELS+=" 'Plugin: Nebula'";;
+            *SoundCloud*) ISSUE_LABELS+=" 'Plugin: SoundCloud'";;
+            *Other*) ISSUE_LABELS+=" 'Plugin: Other'";;
+          esac
+          echo "::set-output name=LABELS::$ISSUE_LABELS"
+        id: set_labels
+
+      - name: Add labels to issue
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labelsToAdd = ${{ steps.set_labels.outputs.LABELS.split(' ') }};
+            await github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: labelsToAdd
+            });
